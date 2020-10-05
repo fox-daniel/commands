@@ -1,0 +1,53 @@
+
+From ssh-tutorial.pdf
+
+Features:
+
+Compression
+Public Key Authentication
+Authentication of the server
+Port Forwarding (TCP=Transmission Control Protocol)
+X11 Forwarding
+File Transfer
+
+Commands:
+
+ssh $hostname
+
+ssh $user_name@$hostname
+	or
+	ssh -l $user_name $hostname
+
+ssh -p $port $user_name@$hostname
+
+First Contact: must verify server's key
+	key is added to:
+		~/.ssh/known_hosts
+
+
+Remote Command Execution:
+
+ssh $user_name@$hostname "<shell_command>"
+
+To use a program that needs a terminal to operate, use -t:
+	ssh -t $user_name@$hostname "vim $filename"
+	or
+	ssh -i $path_to_public_key -t $user_name@$hostname "vim $filename"
+
+File Transfer:
+
+sftp -i $path_to_public_key $user_name@$host_name
+
+The prompt: "sftp>" supports the standard shell commands:
+	>get #get file from remote
+	>put # put file on remote
+	>quit # quit sftp
+	>exit # same as quit
+	>? #list of all commands
+	>dir #list contents of current dir
+	>lcd  #change active directory on local computer
+	>lls # list contents of current directory of local computer
+
+See doc for tar
+See doc for rsync
+See doc for Public Key Authentication

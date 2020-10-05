@@ -1,0 +1,9 @@
+
+To create a requirements file from the current state:
+
+$ pip freeze > requirements.txt
+$ pip freeze -r # use order from requirements file
+
+To install all requirements:
+
+# pip install -r requirements.txt

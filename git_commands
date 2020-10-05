@@ -1,0 +1,203 @@
+Clone:
+
+	$ git clone <url> <new_name>
+
+REMOTES:
+
+	Show remotes:
+
+	$ git remote -v
+
+	Add a remote:
+
+	$ git remote add <short name> <url>
+
+	Remove a remote:
+
+	$ git remote remove <short name>
+
+
+
+Three Trees:
+	HEAD: this normally sits at and points to the last commit
+	INDEX: these are the staged files
+	WORKING DIRECTORY: sandbox, files may be unstaged
+
+Show Commits
+
+	$ git show <ref>
+		<ref> is a hash, abbreviated hash, HEAD~k, HEAD^n
+		HEAD~k gives kth parent
+		HEAD^n gives nth parent of a merge 
+		commit info and diffs are shown
+
+	$ git show <commit hash>:path/to/file > old_version_file
+		show old version of a file and pipe to a file to save and peruse 
+
+Show tracked files:
+
+	$ git ls-tree -r master --name-only
+
+Branching
+
+	create a branch:
+	$ git branch <name>
+
+	To move/rename a branch:
+	$ git branch -m [<old name>] <new name>
+
+	switch branches
+	$ git checkout <name>
+
+	graph branches
+	$ git log --pretty=format:"%h %s" --graph
+
+	$ git log --oneline --decorate --graph --allows
+
+	create and switch to new branch
+	$ git checkout -b <name>
+
+	show branches
+	$ git branch
+
+	show branches and last commits
+	$ git branch -v
+
+	See last 10 branches visited:
+	$ git for-each-ref --sort=-committerdate --count=10
+
+	Rename a branch: 
+	$ git checkout <branch to rename>
+	$ git branch -m <new name>
+
+	Delete a branch
+
+	$ git branch -d <name>
+	
+Merging
+
+	1. move to master branch
+		$ git checkout master
+	2. merge
+		$ git merge <name of branch>
+	3. delete branch that has been merged
+		$ git branch -d <name>
+
+	4. finalize merge with a commit
+		$ git commit -am "message"
+	To merge changes in master to another branch
+	1. $ git checkout <branch name>
+	2. $ git merge master
+
+
+
+	See $ git mergetool
+
+Stop Tracking a File:
+
+	$ git rm --cache <file>
+
+	Then commit; add file to .gitignore if don't want it tracked in the future
+
+List ignored files:
+
+	git ls-files . --ignored --exclude-standard --others
+
+List untracked files:
+
+	git ls-files . --exclude-standard --others
+
+Retrieve version of file from a different branch and write it to <new_file>:
+
+	git show <branch>:<path to file> > <new_file>
+
+Retrieve old version of a file from "n" commits ago:
+
+	git show HEAD~<n>:<path to file>
+
+
+Stashing: save work not ready for a commit before switching branches
+	
+	stash the current state of the current branch:
+	$ git stash
+
+	see what you have stored in the stack:
+	$ git stash list
+
+	apply a stash
+	$ git stash apply 
+
+	apply not the most recent stash:
+	$ git stash apply stash@{2}
+
+	see the diff of stashed files (in stash@{i} for some i) from parent:
+	$ git stash show -p stash@{i}
+
+
+
+RESET: soft, mixed, hard
+	$ git reset --soft <ref>
+		makes HEAD point to <ref>
+		does not change INDEX
+		does not change WORKING DIRECTORY
+		it essentially undoes last commit; does not undo last git add or alter working dir
+		if git add and git commit are used it is equivalent to git commit --amend
+
+	$ git reset --mixed <ref>
+		equivalent to $ git reset <ref>
+		moves HEAD to <ref>
+		updates INDEX  with contents of <ref>
+		undid git commit
+		undid git add
+
+	$ git reset --hard <ref>
+		moves HEAD to <ref>
+		updates INDEX  with contents of <ref>
+		removes all work in WORKING DIRECTORY
+		DESTROYS data!
+
+	$ git reset -- <ref> file.txt
+		copies version of file.txt at <ref> to INDEX
+		does not change working dir
+		essentially unstages file.txt
+		allows revert to old version of file without putting that in the working directory
+
+Show DIFFs
+	
+	show diffs between current working dir and commit referenced
+	$ git diff --color <ref>
+
+	show diffs between stagin area and commit referenced
+	$ git diff --color --staged <ref>
+
+Squash: combine multiple commits into one
+	$ git reset --soft <ref>
+	$ git commit
+
+Bisect: use test scripts that return 0 for good and 1 for bad and 125 for can't run to automate finding the first commit with a change in code
+
+	To automate, the test script needs to be present for all commits being tested! So need to set this up at the beginning.
+
+	Help:
+	$ git bisect --help
+
+	To start a session:
+	$git bisect start
+
+	Mark the current as bad:
+	$ git bisect bad <commit or leave blank for current>
+
+	Mark an earlier as good:
+	$ git bisect good <commit>
+
+	$ git bisect run test_script
+
+
+	Finish session and return to original head:
+	$ git bisect reset
+
+Display the number of lines of code:
+	$ git ls-files | xargs wc -l
+
+	For just .py files:
+	$ git ls-files | grep '\.py' | xargs wc -l

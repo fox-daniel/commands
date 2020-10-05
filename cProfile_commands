@@ -1,0 +1,7 @@
+
+
+# To profile a script and put the stats in a file:
+python -m cProfile -o file_with_stats myscript.py
+
+# to visualize
+snakeviz file_with_stats

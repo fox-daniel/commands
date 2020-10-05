@@ -1,0 +1,12 @@
+To render .md files as they appear in GitHub
+
+https://github.com/joeyespo/grip
+
+$pip install grip
+
+
+$cd myrepo
+
+$grip
+
+open browser

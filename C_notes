@@ -1,0 +1,76 @@
+Notes on C
+
+stack: same discipline as fcn; after function call, memory does not persist
+heap: persists outside of fcn; access through pointers
+
+array: pointer to memory location of a type (e.g. int, bool), possibly with other memory locations of same type nearby
+
+computer memory: long array of unsigned ints; can look at memory location to see what is in there
+
+Python: create an array: it is a complex object with lots of properties, such as length, dtype, calling a negative index counts back from end of array (requires length), etc
+
+C: has light layer of structure on top of computer memory as described above
+
+Declare in C:
+	int arr[n]
+	int arr2[m]
+
+	"No Protected Abstracions":
+	arr2[-1] might use memory of arr
+
+Pointers:
+
+	arr points to *arr
+	*arr is the thing that arr points to
+
+	arr[3] = 4 (ok)
+	*arr returns object in address 0 of arr (*arr is a pointer)
+	*(arr+2) returns what is in arr[2]
+
+
+
+	At run time, arr is just a pointer to its 0 location
+
+	Two declarations:
+
+	int *arr # does not allocate memory
+	int arr[10] # allocates memory
+
+	to get value: *arr
+	to get address: arr (addresses are usually 4 or 8 bytes)
+
+
+struct has multiple fields. For example to create a type of structure with two fields, one int one float called my_struct:
+
+	typedef struct {
+				int a;
+				float b;
+	} my_struct
+
+To allocate memory for a struct of type my_struct:
+
+	my_struct * d = malloc(sizeof(my_struct)); # declares d as pointer to my_struct and initializes pointer to memory, but memory contains unknown stuff
+
+
+Using Pointers:
+
+	* d . a = 0 # *d points to some stuff, that includes a field "a", set "a" to zero
+
+	The shortcut for this is:
+
+	d -> a = 0
+
+
+To declare a function, don't need typedef:
+
+	my_function(type *x, type *y){
+	 ... code ...
+	}
+
+To call a fcn, don't need *my_function, but can use my_function
+
+
+Type of computer:
+ 
+SIMD = single instruction, multiple data
+

@@ -1,0 +1,33 @@
+info on a command:
+$man a_command
+
+e.g.
+$ man ls
+grep:
+
+grep [options] string filename
+
+# search directory my_dir
+
+grep string my_dir
+
+# search current directory
+grep string .
+
+
+# to sort files by name
+ls | sort -n 
+
+# find differences between two files (other versions exist)
+diff file_1 file_2
+
+Uninstall Homebrew packages:
+
+$ brew uninstall <name>
+
+
+Dealing with and Removing Packages (Mac .pkg packages only):
+
+List all packages:
+$ pkgutil --pkgs
+

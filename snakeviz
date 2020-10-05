@@ -1,0 +1,5 @@
+https://pypi.org/project/snakeviz/
+
+For viewing pstats file
+# if file_name was created from .dump_stats(), to visualize it:
+$ snakeviz file_name

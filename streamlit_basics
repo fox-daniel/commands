@@ -1,0 +1,39 @@
+Streamlit (on AWS)
+
+Install streamlit in a conda env or venv
+
+
+To Run on AWS:
+https://docs.streamlit.io/en/latest/tutorial/run_streamlit_remotely.html
+
+SSH with port forwarding:
+
+ssh -o logLevel=Error -L 8501:$IP_ADDRESS:8501 $user@$IP_ADDRESS
+
+Create virtual env
+
+In env:
+	$pip install streamlit
+
+Test:
+	$streamlit hello
+
+Install packages that app needs.
+
+With the script my_script.py on the remote machine:
+	$streamlit run my_script.py
+
+Stop Streamlit:
+
+Get PID:
+	$ps -e | grep streamlit
+
+Kill:
+	$kill <pid>
+
+
+SSHFS to edit streamlit app remotely:
+
+can't get it to work; maybe because Dropbear instead of OpenSSH
+
+https://askubuntu.com/questions/777116/sshfs-giving-remote-host-has-disconnected

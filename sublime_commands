@@ -1,0 +1,6 @@
+Using MarkdownPreview (install through Package Control (http://plaintext-productivity.net/2-04-how-to-set-up-sublime-text-for-markdown-editing.html))
+
+To preview a file in Markdown:
+
+1. command+shift+p (Tools -> Command Palette)
+2. select MarkdownPreview
