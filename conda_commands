@@ -36,7 +36,8 @@ Update env from yml:
 
 	$ conda env update –f <name.yml> –n <env_name>
 
-NOTE: Creating env from .yml file does not make use of "prefix: path/to/env". To specify the location:
+NOTE: Creating env from .yml file does not make use of "prefix: path/to/env". To specify the location: ?????
+
 
 
 Create an env with PyPy:
