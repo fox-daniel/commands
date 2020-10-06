@@ -16,6 +16,13 @@ REMOTES:
 
 	$ git remote remove <short name>
 
+	If a deleted remote is still tracked (appears with $git branch -a)
+
+	$git remote prune origin
+
+	Or remove a particular remote branch:
+
+	$git branch -d -r origin/<branch>
 
 
 Three Trees:
