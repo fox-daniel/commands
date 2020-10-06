@@ -23,7 +23,7 @@ Create an environment in a particular directory:
 
 Remove conda env that was created with a prefix:
 
-	$ conda remove -p </filepath/myenvironment> 
+	$ conda env remove -p </filepath/myenvironment> 
 
 
 Create .yml env file (without build info):
