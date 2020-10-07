@@ -1,0 +1,91 @@
+log into aws
+navigate to ec2
+select region (top right)
+click launch image
+select machine
+review and launch (or configure)
+create public/private key pair
+download keys in secure location
+launch
+
+Change permissions on your private key:
+$ chmod 400 path/to/keys
+
+To get info about your VM:
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connection-prereqs.html#connection-prereqs-get-info-about-instance
+
+Connect to VM with SHH
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html
+
+ssh -i /path/my-key-pair.pem my-instance-user-name@my-instance-public-dns-name
+
+For ec2 VMs the user name is ec2-user
+
+
+Check if python 3 is installed:
+	$ yum check-update
+
+
+If it is not installed:
+	$ sudo yum install python37
+
+Must use python3 (not python), and "python3 -m" to access pip etc.
+
+Check:
+	$ python3 --version
+
+Upgrade pip:
+	$ python3 -m pip install --upgrade --user pip
+
+Check:
+	$ python3 -m pip --version
+
+Install virtualenv:
+	$ python3 -m pip install --user virtualenv
+
+Note: can use "$ virtualenv" commands without "python3 -m" prefix
+
+Switch to working directory:
+	$ cd <working_dir>
+
+Create virtual env:
+	$ virtualenv -p python37 rfenv
+
+Activate virtualenv:
+	$ source <venv_name>/bin/activate
+
+!Note: in virtualenv, don't need "python3 -m" prefix
+
+
+
+Older directions:
+If it is not installed, install:
+	$ sudo yum install python34 python34-pip
+
+Create virtualenv with python 3.4:
+	$ virtualvenv -p python3 <venv_name>
+
+Activate virtualenv:
+	$ source <venv_name>/bin/activate
+
+
+Using Text Editor vi: https://www.howtogeek.com/102468/a-beginners-guide-to-editing-text-files-with-vi/
+
+
+
+
+EC2 Linux:
+
+upgrade from AWS
+python3: https://tecadmin.net/install-python-3-7-amazon-linux/
+or:
+sudo yum install python37
+$ python3 --version
+Use python3; python3 -m ...
+$ sudo python3 -m pip install virtualenv
+[suggested to use ...install --user... instead]
+$ python3 -m pip install -r requirements.txt
+
+

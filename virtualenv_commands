@@ -1,0 +1,36 @@
+virtualenv is installed with pipx for particular envs, pip for general install
+
+
+See path to virtualenv installation
+	$ which virtualenv 
+
+Create a virtual env
+	$ virtualenv <name>
+
+Activate
+	$ source <name>/bin/activate
+
+Deactivate:
+	$ deactivate
+
+Check which environment you are in (the path returned should show the environment)
+	$ which python
+	or
+	$ which pip
+
+Remove an environment
+	$ sudo rm -rf <name>
+
+Add environment to Jupyter
+	$ python -m ipykernel install --user --name=<my_env_name>
+
+Requirements files:
+
+Create file:
+	$ pip freeze > requirements.txt
+	$ pip freeze -r # use order from requirements file
+
+To install all requirements:
+
+	$ pip install -r requirements.txt
+

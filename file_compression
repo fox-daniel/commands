@@ -1,0 +1,10 @@
+To compress a directory on Linux or Unix
+	$ tar czvf <archive_name>.tar.gz <directory_name> --exclude=<directory_to_exclude>
+	-c create archive
+	-z compress using gzip
+	-v verbose -- display progress
+	-f archive file name
+
+To compress a directory on Linux or Unix
+	$ tar xzvf <archive_name>.tar.gz 
+
