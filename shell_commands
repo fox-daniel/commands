@@ -1,33 +1,79 @@
+Spacing in each line matters!
+
+
+Where is bash interpreter located?
+$ which bash
+
+
 info on a command:
-$man a_command
+	$man a_command
 
 e.g.
-$ man ls
-grep:
+	$ man ls
 
-grep [options] string filename
+grep:
+	$ grep [options] string filename
 
 # search directory my_dir
-
-grep string my_dir
+	$ grep string my_dir
 
 # search current directory
-grep string .
+	$ grep string .
 
 
 # to sort files by name
-ls | sort -n 
+	$ ls | sort -n 
 
 # find differences between two files (other versions exist)
-diff file_1 file_2
+	$ diff file_1 file_2
 
 Uninstall Homebrew packages:
-
-$ brew uninstall <name>
+	$ brew uninstall <name>
 
 
 Dealing with and Removing Packages (Mac .pkg packages only):
 
 List all packages:
-$ pkgutil --pkgs
+	$ pkgutil --pkgs
+
+Scripting
+
+Make a file executable:
+	$ chmod +x <filename>
+
+Scripts should begin with
+	#!/bin/bash 
+or whatever the path is to bash
+
+Print to standard output:
+	$ echo "some text"
+
+Variables:
+	var = 6
+	echo "The value of the variable is $var."
+	or
+	echo "The value of the variable is ${var}."
+
+User Input: "read" accepts user input and stores it in variable REPLY
+	read;
+	echo ${REPLY}
+
+	or
+
+	read var
+	echo $var
+
+Control/Decision Making. 
+	var = "yes"
+	if [ "$var" = "yes" ]; then
+		echo var
+	elif
+		stuff
+	else
+		stuff
+	fi
+
+
+
+
 
