@@ -76,6 +76,8 @@ Branching
 	Rename a branch: 
 	$ git checkout <branch to rename>
 	$ git branch -m <new name>
+	or
+	$ git branch -m <oldname> <newname>
 
 	Delete a branch
 

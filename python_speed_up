@@ -3,6 +3,7 @@ To speed up Python code, try the following, in order:
 1. use numpy and vectorize (in python)
 2. switch to PyPy (uses JIT (just in time compilation))
 	-works best for long run time programs so that the overhead of the PyPy compiler doesn't over shadow
+	- has not worked for me with numpy
 3. switch to Numba: this speeds up loops and numpy code; it does not compatible with all packages; does not work well with lambdas and other Python features
 4. Cython: you are changing your code; this is more extreme; your code may not run in Python any more
 5. Rewrite code in Rust or C
@@ -15,40 +16,43 @@ $ ipython
 
 PyPy: Install in a venv or conda env; use brew install within the env
 
-Conda env:
+	Conda env:
 
-- make a conda env with python=3.6 (=3.8 caused the pypy env to crash)
-- activate conda env
-- $ conda install -c conda-forge pypy3.6
-- check that pypy3 is working:
-	$ pypy3
-	(should open pypy environment)
-- $ conda install <packages such as numpy>
+	- make a conda env with python=3.6 (=3.8 caused the pypy env to crash)
+	- activate conda env
+	- $ conda install -c conda-forge pypy3.6
+	- check that pypy3 is working:
+		$ pypy3
+		(should open pypy environment)
+	- $ conda install <packages such as numpy>
 
-- https://doc.pypy.org/en/latest/install.html
-- Install: 
-	$ brew install pypy3
+	- https://doc.pypy.org/en/latest/install.html
+	- Install: 
+		$ brew install pypy3
 
-	Use: easy_install_pypy3 and pip_pypy3
+		Use: easy_install_pypy3 and pip_pypy3
 
-	To update pip and setuptools between pypy3 releases, run:
-    $ pip_pypy3 install --upgrade pip setuptools
+		To update pip and setuptools between pypy3 releases, run:
+	    $ pip_pypy3 install --upgrade pip setuptools
 
-- To install packages for use with PyPy, use a pypy venv 
-	(or: $ pypy3 -mpip install <package>)
+	- To install packages for use with PyPy, use a pypy venv 
+		(or: $ pypy3 -mpip install <package>)
 
 
-When brew installed pypy, received:
+	When brew installed pypy, received:
 
-Error: The `brew link` step did not complete successfully
-The formula built, but is not symlinked into /usr/local
-Could not symlink bin/2to3
-Target /usr/local/bin/2to3
-already exists. You may want to remove it:
-  rm '/usr/local/bin/2to3'
+	Error: The `brew link` step did not complete successfully
+	The formula built, but is not symlinked into /usr/local
+	Could not symlink bin/2to3
+	Target /usr/local/bin/2to3
+	already exists. You may want to remove it:
+	  rm '/usr/local/bin/2to3'
 
-To force the link and overwrite all conflicting files:
-  brew link --overwrite python@3.8
+	To force the link and overwrite all conflicting files:
+	  brew link --overwrite python@3.8
 
-To list all files that would be deleted:
-  brew link --overwrite --dry-run python@3.8
+	To list all files that would be deleted:
+	  brew link --overwrite --dry-run python@3.8
+
+Numba
+
