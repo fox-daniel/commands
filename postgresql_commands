@@ -1,0 +1,53 @@
+open pgAdmin to start
+
+Servers --> Right Click PostgreSQL 13 --> Create
+
+psql - interactive terminal program
+
+Switch to postgres role in terminal:
+
+$ sudo -i -u postgres
+--> enter user password (e.g. laptop user account)
+
+to return to regular user:
+$ exit
+
+Or use:
+
+Command + Space --> SQL (psql) Shell
+
+in SQL Shell:
+
+hit return to use default values; enter password for postgresql
+
+list databases:
+
+postgres=# \l
+
+for more info 
+
+postgres=# \l+
+
+Version:
+
+postgres=# SELECT version();
+
+Create a database:
+
+postgres=# CREATE DATABASE dvdrental;
+
+exit postgres and navigate to bin:
+
+$ cd /Library/PostgreSQL/13/bin
+
+$ pg_restore -U postgres -d <database> /path/to/database
+
+
+
+pgAdmin:
+
+query tool icon looks like database icon
+
+tables are in database > schemas > public
+
+
