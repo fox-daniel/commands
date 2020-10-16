@@ -24,11 +24,26 @@ REMOTES:
 
 	$git branch -d -r origin/<branch>
 
+	Retrieve a single file from a git repo without cloning. The url 
+	should be for the raw file (click "raw" button in GitHub)
+
+	$ wget <url>
 
 Three Trees:
 	HEAD: this normally sits at and points to the last commit
 	INDEX: these are the staged files
 	WORKING DIRECTORY: sandbox, files may be unstaged
+
+Show history:
+	$ git hist
+
+Checkout older commit:
+
+	$ git checkout <ref>
+
+Return to up to date state:
+
+	$ git checkout main
 
 Show Commits
 
@@ -170,6 +185,10 @@ RESET: soft, mixed, hard
 		does not change working dir
 		essentially unstages file.txt
 		allows revert to old version of file without putting that in the working directory
+
+	Unstage a single file:
+
+		$ git reset HEAD -- <file>
 
 Show DIFFs
 	

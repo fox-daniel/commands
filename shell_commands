@@ -30,13 +30,21 @@ grep:
 Uninstall Homebrew packages:
 	$ brew uninstall <name>
 
+Viewing files:
+
+	$ cat <filename> <anotherfilename>
+
+	$ head -n 5 <filename>
+
+	$ tail -n 5 <filename>
+
 
 Dealing with and Removing Packages (Mac .pkg packages only):
 
 List all packages:
 	$ pkgutil --pkgs
 
-Scripting
+Scripting Scripting Scripting Scripting Scripting Scripting Scripting
 
 Make a file executable:
 	$ chmod +x <filename>
@@ -73,7 +81,12 @@ Control/Decision Making.
 		stuff
 	fi
 
+Executing python script from a shell script
 
+	The paths used in the python script should be relative to the 
+	directory containing the shell script.
+
+	
 
 
 
