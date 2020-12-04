@@ -2,6 +2,15 @@ Clone:
 
 	$ git clone <url> <new_name>
 
+Create a local repo. From within the directory:
+	$ git init
+
+To remove a repo (not the files, but the repo structure from git):
+	$ rm -rf .git
+
+To remove the repo and the directory itself:
+	$ rm -rf <dir>
+
 REMOTES:
 
 	Show remotes:

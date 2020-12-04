@@ -20,6 +20,8 @@ grep:
 # search current directory
 	$ grep string .
 
+# to only include certain extensions
+	$ grep --include *.ext <string to search for> <directory>
 
 # to sort files by name
 	$ ls | sort -n 
@@ -38,11 +40,30 @@ Viewing files:
 
 	$ tail -n 5 <filename>
 
+Piping Output:
+	Send result of <command> from stdout to a file:
+		$ <command> > <filename>
+		or
+		$ <command> 1> <filename>
+
+	Send stderr to file
+		$ <command> 2> <filename>
+
+	Send stdout and stderr to separate files
+		$ <command> 1> <outputfile> 2> <errorfile>
+
 
 Dealing with and Removing Packages (Mac .pkg packages only):
 
 List all packages:
 	$ pkgutil --pkgs
+
+Environment Variables:
+	Set:
+		$export <var_name>=<value>
+
+	Unset:
+		$unset <var_name>
 
 Scripting Scripting Scripting Scripting Scripting Scripting Scripting
 

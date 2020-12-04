@@ -22,7 +22,7 @@ Remove an environment
 	$ sudo rm -rf <name>
 
 Add environment to Jupyter
-	$ python -m ipykernel install --user --name=<my_env_name>
+	$ python -m ipykernel install --user --name=myenv
 
 Requirements files:
 

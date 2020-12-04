@@ -46,8 +46,19 @@ $ pg_restore -U postgres -d <database> /path/to/database
 
 pgAdmin:
 
+to install:
+
+	$brew install --cask pgadmin4
+
+update brew to update pgadmin4.
+
 query tool icon looks like database icon
 
 tables are in database > schemas > public
 
 
+psycopg2:
+
+In relevant environment or virtual env:
+
+	$pip install psycopg2-binary
