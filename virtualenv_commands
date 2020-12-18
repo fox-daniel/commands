@@ -1,11 +1,17 @@
 virtualenv is installed with pipx for particular envs, pip for general install
 
+Do not put project files in the virtualenv directory, put virtualenv (dir) in the project directory.
 
 See path to virtualenv installation
 	$ which virtualenv 
 
-Create a virtual env
-	$ virtualenv <name>
+	or
+
+	$ which python
+
+Create a virtual env [with specified version of python, which must be present on the machine]
+	$ virtualenv [-p <path to python> ] <name>
+
 
 Activate
 	$ source <name>/bin/activate
@@ -27,7 +33,7 @@ Add environment to Jupyter
 Requirements files:
 
 Create file:
-	$ pip freeze > requirements.txt
+	$ pip freeze --local > requirements.txt
 	$ pip freeze -r # use order from requirements file
 
 To install all requirements:

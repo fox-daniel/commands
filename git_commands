@@ -1,3 +1,5 @@
+NOTE: "master" has been replaced by "main"; use "master" instead of "main" for older repos
+
 Clone:
 
 	$ git clone <url> <new_name>
@@ -67,7 +69,7 @@ Show Commits
 
 Show tracked files:
 
-	$ git ls-tree -r master --name-only
+	$ git ls-tree -r main --name-only
 
 Branching
 
@@ -109,8 +111,8 @@ Branching
 	
 Merging
 
-	1. move to master branch
-		$ git checkout master
+	1. move to main branch
+		$ git checkout main
 	2. merge
 		$ git merge <name of branch>
 	3. delete branch that has been merged
@@ -118,9 +120,9 @@ Merging
 
 	4. finalize merge with a commit
 		$ git commit -am "message"
-	To merge changes in master to another branch
+	To merge changes in main to another branch
 	1. $ git checkout <branch name>
-	2. $ git merge master
+	2. $ git merge main
 
 
 
@@ -144,7 +146,7 @@ Retrieve version of file from a different branch and write it to <new_file>:
 
 	git show <branch>:<path to file> > <new_file>
 
-Retrieve old version of a file from "n" commits ago:
+Retrieve old version of a file from "n" commits ago (path is relative to repo):
 
 	git show HEAD~<n>:<path to file>
 
