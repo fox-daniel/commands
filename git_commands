@@ -48,6 +48,9 @@ Three Trees:
 Show history:
 	$ git hist
 
+Show history in more detail:
+	$ git reflog
+
 Checkout older commit:
 
 	$ git checkout <ref>
@@ -109,7 +112,7 @@ Branching
 
 	$ git branch -d <name>
 	
-Merging
+Merge
 
 	1. move to main branch
 		$ git checkout main
@@ -124,9 +127,34 @@ Merging
 	1. $ git checkout <branch name>
 	2. $ git merge main
 
-
-
 	See $ git mergetool
+
+	Merge Conflicts
+		$git merge --abort
+
+		Resolve conflicts by editing the files. Commit. Merge/Push.
+
+Rebase
+
+	State: create a new history in which work that was done in parallel now appears in sequence
+
+	To rebase branch_1 onto branch_2:
+	$ git checkout branch_1
+	$ git rebase branch_2
+	$ git checkout branch_2
+	$ git merge branch_1
+
+	The above causes commits from branch_1 to appear as part of branch_2, tacked onto the end.
+
+	-----OR-----
+
+	To rebase branch_1 onto branch_2 in order to make a PR to merge branch_1 into (remote) branch_2 (e.g. branch_2 = origin main)
+
+	$ git pull origin branch_2 //make sure it is up to date
+	$ git checkout branch_1
+	$ git rebase branch_2
+	$ git push -f origin branch_1
+	$ make a PR 
 
 Stop Tracking a File:
 
@@ -201,6 +229,11 @@ RESET: soft, mixed, hard
 
 		$ git reset HEAD -- <file>
 
+REFLOG
+	Git has blobs of file states and metadata (commits, pointers to commits, etc)
+	To see the history that includes all changes to commits and pointers:
+	$ git reflog 
+
 Show DIFFs
 	
 	show diffs between current working dir and commit referenced
@@ -240,3 +273,13 @@ Display the number of lines of code:
 
 	For just .py files:
 	$ git ls-files | grep '\.py' | xargs wc -l
+
+To Land a Pull Request (PR) from branch_1:
+
+	1. create a new branch -- this could be a backup branch (branch_1_backup) 
+	2. git reset --soft <ref> // where <ref> is the last commit that good changes can be put on
+	3. git add...   |
+					| -> repeat add/commit file by file, or even pieces of files
+	4. git commit...| 
+
+	Note, PRs can be to branches other than main.

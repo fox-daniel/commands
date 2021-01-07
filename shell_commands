@@ -102,6 +102,13 @@ Control/Decision Making.
 		stuff
 	fi
 
+Run a script:
+	Set to executable:
+	$ chmod +x script_name.sh
+	Run:
+	$ ./script_name.sh
+
+
 Executing python script from a shell script
 
 	The paths used in the python script should be relative to the 
