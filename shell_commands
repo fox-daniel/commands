@@ -12,21 +12,21 @@ e.g.
 	$ man ls
 
 grep:
-	$ grep [options] string filename
+	$ grep [options] string_in_quotes filename
 
-# search directory my_dir
-	$ grep string my_dir
+	# search directory my_dir
+		$ grep string my_dir
 
-# search current directory
-	$ grep string .
+	# search current directory
+		$ grep string .
 
-# to only include certain extensions
-	$ grep --include *.ext <string to search for> <directory>
+	# to only include certain extensions
+		$ grep --include *.ext <string to search for> <directory>
 
-# to sort files by name
+Sort files by name
 	$ ls | sort -n 
 
-# find differences between two files (other versions exist)
+Find differences between two files (other versions exist)
 	$ diff file_1 file_2
 
 Uninstall Homebrew packages:

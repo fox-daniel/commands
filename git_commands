@@ -27,6 +27,11 @@ REMOTES:
 
 	$ git remote remove <short name>
 
+	To look at a remote added by someone else:
+
+	$ git fetch origin <branch_name>
+	$ git checkout <branch_name>
+
 	If a deleted remote is still tracked (appears with $git branch -a)
 
 	$git remote prune origin
@@ -39,6 +44,12 @@ REMOTES:
 	should be for the raw file (click "raw" button in GitHub)
 
 	$ wget <url>
+
+	Compare local branch to remote branch. This does not activate a merge. 
+	From within local branch:
+
+	$ git fetch origin branch_name
+	$ git diff FETCH_HEAD 
 
 Three Trees:
 	HEAD: this normally sits at and points to the last commit
@@ -67,8 +78,9 @@ Show Commits
 		HEAD^n gives nth parent of a merge 
 		commit info and diffs are shown
 
+	To show an old version of a file and pipe to a file to save and peruse:
 	$ git show <commit hash>:path/to/file > old_version_file
-		show old version of a file and pipe to a file to save and peruse 
+		 
 
 Show tracked files:
 
@@ -152,7 +164,7 @@ Rebase
 
 	$ git pull origin branch_2 //make sure it is up to date
 	$ git checkout branch_1
-	$ git rebase branch_2
+	$ git rebase -i branch_2
 	$ git push -f origin branch_1
 	$ make a PR 
 
@@ -283,3 +295,12 @@ To Land a Pull Request (PR) from branch_1:
 	4. git commit...| 
 
 	Note, PRs can be to branches other than main.
+
+Commit Message -- Editor Set Up
+	
+	In the .gitconfig file, the editor must be specified as
+
+	[core]
+	editor = subl -w
+
+	Without the "-w", it won't commit.
