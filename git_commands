@@ -82,6 +82,16 @@ Show Commits
 	$ git show <commit hash>:path/to/file > old_version_file
 		 
 
+Adding Parts of a file:
+
+	If the file is not yet in the repository:
+	$ git add -N <filename>
+
+	Then:
+	$ git add --patch <filename>
+		-> Interactive session opened in which you can select parts to add to the staging area
+
+
 Show tracked files:
 
 	$ git ls-tree -r main --name-only
@@ -108,6 +118,10 @@ Branching
 	show branches
 	$ git branch
 
+	compare branch1 and branch2
+	$ git checkout branch1
+	$ git diff branch1..branch2
+
 	show branches and last commits
 	$ git branch -v
 
@@ -123,6 +137,8 @@ Branching
 	Delete a branch
 
 	$ git branch -d <name>
+	$ git branch -D <name> // if not fully merged
+
 	
 Merge
 
@@ -144,7 +160,11 @@ Merge
 	Merge Conflicts
 		$git merge --abort
 
-		Resolve conflicts by editing the files. Commit. Merge/Push.
+		Resolve conflicts by checking which files conflict:
+			$ git status
+			Open and edit the files (handle all: <<<<<....=====.....>>>>> ).
+			Commit. 
+			Merge/Push.
 
 Rebase
 
@@ -165,6 +185,12 @@ Rebase
 	$ git pull origin branch_2 //make sure it is up to date
 	$ git checkout branch_1
 	$ git rebase -i branch_2
+		If conflicts, check which files have conflicts:
+			$ git status
+			Open the files in an editor and resolve conflicts by hand (handle all: <<<<<....=====.....>>>>> )
+			$ git add <conflicting files that were resolved>
+			$ git commit <message etc>
+			$ git rebase --continue
 	$ git push -f origin branch_1
 	$ make a PR 
 

@@ -27,16 +27,22 @@ Check which environment you are in (the path returned should show the environmen
 Remove an environment
 	$ sudo rm -rf <name>
 
+To install a requirement:
+	
+	$ python3 -m pip install <package>
+
 Add environment to Jupyter
 	$ python -m ipykernel install --user --name=myenv
 
-Requirements files:
+----Requirements files----:
 
-Create file:
+Create a requirements file:
 	$ pip freeze --local > requirements.txt
 	$ pip freeze -r # use order from requirements file
 
 To install all requirements:
 
 	$ pip install -r requirements.txt
+
+
 

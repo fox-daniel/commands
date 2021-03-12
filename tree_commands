@@ -1,0 +1,7 @@
+$ brew install tree
+
+# Show the tree structure of the current directory (recursive)
+$ tree ./
+
+# exclude some subdirectories:
+$ tree -I 'dir1|dir2' ./
