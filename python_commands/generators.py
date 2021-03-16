@@ -55,3 +55,23 @@ counter_fn(10)
 for c in count:
 	print(c)
 
+print("\n --- Using .send() method --- \n")
+
+def counter(maximum: int) -> int:
+	i = 0
+	while i < maximum:
+		val = (yield i)
+		if val is not None:
+			i = val
+		else:
+			i += 1
+
+count = counter(10)
+print(next(count))
+print(next(count))
+count.send(5)
+print(next(count))
+print(next(count))
+
+
+

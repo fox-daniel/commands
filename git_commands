@@ -32,6 +32,11 @@ REMOTES:
 	$ git fetch origin <branch_name>
 	$ git checkout <branch_name>
 
+	To update a remote branch of which you have an old copy locally:
+
+	$ git checkout <branch_name>
+	$ git merge origin/<branch_name>
+
 	If a deleted remote is still tracked (appears with $git branch -a)
 
 	$git remote prune origin
@@ -330,3 +335,8 @@ Commit Message -- Editor Set Up
 	editor = subl -w
 
 	Without the "-w", it won't commit.
+
+Simplify history (e.g. in prep for a PR, though the PR can also squash):
+	- rebase branch to itself using a hash
+	- soft/mixed reset and then commit changes in a way that tells a helpful story
+	- if a file was track and is no longer tracked, git rm that file from branch-a before rebasing it on branch-b.

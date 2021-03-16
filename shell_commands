@@ -15,6 +15,9 @@ e.g.
 grep:
 	$ grep [options] string_in_quotes filename
 
+	# search all subdirectories of current
+	$ grep -r "some_string" *
+
 	# search directory my_dir
 		$ grep string my_dir
 
