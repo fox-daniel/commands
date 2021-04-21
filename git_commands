@@ -56,6 +56,9 @@ REMOTES:
 	$ git fetch origin branch_name
 	$ git diff FETCH_HEAD 
 
+	If remote branch is not pulling properly, e.g. some file appears as deleted locally even after pull:
+	$ git reset --hard origin/main
+
 Three Trees:
 	HEAD: this normally sits at and points to the last commit
 	INDEX: these are the staged files

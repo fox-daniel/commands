@@ -1,0 +1,11 @@
+mdbook produces html files. Use these to display the book as a webpage.
+
+
+To build [and display]:
+$ mdbook build [--open]
+
+To update upone changes:
+$ mdbook watch [--open]
+
+To display an image, place the image file in the src/ directory, but not in a subdirectory of src/.
+

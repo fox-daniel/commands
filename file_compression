@@ -8,3 +8,6 @@ To compress a directory on Linux or Unix
 To compress a directory on Linux or Unix
 	$ tar xzvf <archive_name>.tar.gz 
 
+To extract:
+	$ tar -xf <name>.tar.gz
+
