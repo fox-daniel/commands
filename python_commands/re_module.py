@@ -253,10 +253,22 @@ astring = "ab,467755-5545_456 $555 ,755555222555"
 # print(match.group())
 
 
-print("\n Print Phone Numbers In Standard Form \n")
-phone = "919875641230"
-p = re.compile(r"(?:\+91|91|0|)([0-9]{10})")
-m = p.match(phone)
-print(m.group(1))
+# print("\n Print Phone Numbers In Standard Form \n")
+# phone = "919875641230"
+# p = re.compile(r"(?:\+91|91|0|)([0-9]{10})")
+# m = p.match(phone)
+# print(m.group(1))
+
+s = "hellhello"
+for i in range(len(s) // 2):
+	p = re.compile(r"{}".format(s[:i+1]))
+	match = p.findall(s)
+	p_length = len(match[0])
+	if len(match)*p_length == len(s):
+		print("true")
+		print(match)
+
+
+
 
 

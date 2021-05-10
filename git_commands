@@ -56,7 +56,8 @@ REMOTES:
 	$ git fetch origin branch_name
 	$ git diff FETCH_HEAD 
 
-	If remote branch is not pulling properly, e.g. some file appears as deleted locally even after pull:
+	If remote branch is not pulling properly, e.g. some file appears as deleted locally even after pull. Backup your current state to a new branch. Then, switch to main and:
+	$ git fetch origin 
 	$ git reset --hard origin/main
 
 Three Trees:
@@ -174,7 +175,7 @@ Merge
 			Commit. 
 			Merge/Push.
 
-Rebase
+Rebase: in interactive mode the commits are listed oldest (top) to newest (bottom)
 
 	State: create a new history in which work that was done in parallel now appears in sequence
 
@@ -342,4 +343,4 @@ Commit Message -- Editor Set Up
 Simplify history (e.g. in prep for a PR, though the PR can also squash):
 	- rebase branch to itself using a hash
 	- soft/mixed reset and then commit changes in a way that tells a helpful story
-	- if a file was track and is no longer tracked, git rm that file from branch-a before rebasing it on branch-b.
+	- if a file was tracked and is no longer tracked, git rm that file from branch-a before rebasing it on branch-b.
