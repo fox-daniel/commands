@@ -29,8 +29,11 @@ REMOTES:
 
 	To look at a remote added by someone else:
 
-	$ git fetch origin <branch_name>
-	$ git checkout <branch_name>
+		$ git fetch origin <branch_name>
+
+		To make it local and appear with $ git branch, you alos need to:
+		
+		$ git checkout <branch_name>
 
 	To update a remote branch of which you have an old copy locally:
 
