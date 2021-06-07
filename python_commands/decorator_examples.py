@@ -1,19 +1,142 @@
-def decorate_with(f, prologue, postlogue):
+# Syntax and what decoration accomplishes:
+print("An example where subtract3 is decoratored with add1 and add2 so that the decorated function is the identity.")
+def add1(f):
+    def wrapper(x):
+        return f(x) + 1
+    return wrapper
+
+def add2(f):
+    def wrapper(x):
+        return f(x) + 2
+    return wrapper
+
+@add2
+@add1
+def subtract3(x):
+    return x - 3
+
+print(subtract3(5))
+
+print("Allow an argument in the decorator: \n")
+print("Here is an example that writes the result of a function with one arg to a text file.\n")
+
+def factorial(n: int) -> int:
+    if type(n) == int and n >= 0:
+        if n == 0:
+            return 1
+        else:
+            return n*factorial(n-1)
+    else:
+        return f"n must be non-negative, you entered {n}"
+
+
+print("Call the factorial function on -1 and 3\n")
+res = factorial(-1)
+print(res)
+res = factorial(3)
+print(res)
+
+
+# the decorator must be wrapped in a function that accepts the arg and returns the decorator
+def logging(file_name):
+    def write_log(fn):
+        def wrapper(x):
+            res = fn(x)
+            with open(file_name, "w") as file:
+                print(res, file=file)
+            return res
+        return wrapper
+    return write_log
+
+print("Call the factorial function wrapped with 'write_log' and with output.txt as the filename.")
+
+@logging("output.txt")
+def factorial(n: int) -> int:
+    if type(n) == int and n >= 0:
+        if n == 0:
+            return 1
+        else:
+            return n*factorial(n-1)
+    else:
+        return f"n must be non-negative, you entered {n}"
+
+res = factorial(3)
+print(res)
+
+
+print("Perpetuate useful attributes of the decorated function:")
+
+def tinsel(fn):
     def wrapper():
-        print(prologue)
-        f()
-        print(postlogue)
+        print("tinsel")
+        fn()
+        print("tinsel")
+    wrapper.__name__ = fn.__name__
+    wrapper.__doc__ = fn.__doc__
+    return wrapper
+
+@tinsel
+def tree():
+    """This function prints the word 'tree'."""
+    print("tree")
+
+tree()
+print("tree.__name__ is still", tree.__name__)
+print("tree.__doc__ is ", tree.__doc__)
+
+# But this is better accomplished using functools:
+from functools import wraps
+
+def tinsel(fn):
+    @wraps(fn)
+    def wrapper():
+        print("tinsel")
+        fn()
+        print("tinsel")
+    return wrapper
+
+@tinsel
+def tree():
+    """This function prints the word 'tree'."""
+    print("tree")
+
+tree()
+print("tree.__name__ is still", tree.__name__)
+print("tree.__doc__ is ", tree.__doc__)
+
+
+print("Allow arbitrary args and kwargs")
+
+# See decorate_with_weights.py
+
+
+
+# Creating decorator behavior without decorators
+def decorate_with(func):
+    def wrapper():
+        print("Thus it begins...")
+        func()
+        print("And so it was.")
     return wrapper
 
 def f():
     print("Am I in the middle?")
 
-rapt = decorate_with(f, "Thus it begins...", "And so it was.")
+print("decorate by hand calling \n rapt = decorate_with(f)")
+rapt = decorate_with(f)
 rapt()
 
+print("now decorate with the @")
+
+@decorate_with
+def g():
+    print("Am I in the middle?")
+
+g()
+
+
+
 print("\n Decorator modifying an argument \n")
-
-
 def formal(f):
     def wrapper(name):
         name = "Mrs." + name

@@ -9,8 +9,8 @@ See path to virtualenv installation
 
 	$ which python
 
-Create a virtual env [with specified version of python, which must be present on the machine]
-	$ virtualenv [-p <path to python> ] <name>
+Create a virtual env [with a specified version] [with specified version of python, which must be present on the machine]
+	$ virtualenv [-p <path to python> ] <name> [--python=python3.x]
 
 
 Activate

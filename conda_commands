@@ -29,20 +29,27 @@ Remove conda env that was created with a prefix:
 	$ conda env remove -p </filepath/myenvironment> 
 
 
-Create .yml env file (without build info):
-	$ conda env export > <name.yml> --no-builds
+Create .yaml env file (without build info):
+	$ conda env export > <name.yaml> --no-builds
 
 	Probably want to remove "Prefix" line
 	May want to revise "name" line
 
-Create env from .yml file:
-	$ conda env create -f <name.yml> -p <path/to/env>
+Create env from .yaml file:
+	$ conda env create -f <name.yaml> -p <path/to/env>
 
-Update env from yml:
+Update env from yaml:
 
-	$ conda env update –f <name.yml> –n <env_name>
+	$ conda env update –f <name.yaml> –n <env_name>
 
-NOTE: Creating env from .yml file does not make use of "prefix: path/to/env". To specify the location: ?????
+NOTE: Creating env from .yaml file does not make use of "prefix: path/to/env". To specify the location: ?????
+
+Install Jupyter Notebook
+	$ conda install -c conda-forge notebook
+
+Set conda env in Jupyter Notebook
+	$ conda install -c conda-forge ipykernel
+	$ python -m ipykernel install --user --name=<conda_env_name>
 
 
 
