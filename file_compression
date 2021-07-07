@@ -11,3 +11,12 @@ To compress a directory on Linux or Unix
 To extract:
 	$ tar -xf <name>.tar.gz
 
+
+Zip
+
+Zip a file:
+	$ zip file.zip file
+
+Zip a dir:
+	$ zip directory.zip directory -r
+
